@@ -1,7 +1,7 @@
 import Employees from '../components/Employees';
 import Head from 'next/head'
 
-export default function Account() {
+export default function EmployeesPage() {
   return (
     <>
       <Head>
