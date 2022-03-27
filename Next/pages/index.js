@@ -1,12 +1,17 @@
 import Head from 'next/head'
+import Link from "next/link";
+
+
+
 
 export default function Home() {
+
   return (
     <>
       <Head>
         <title>Home</title>
       </Head>
-      <h1>Home Page</h1>
+      <Link href="/userpage"><a><button shadow color="gradient" auto>Login</button></a></Link>
     </>
   );
 }
