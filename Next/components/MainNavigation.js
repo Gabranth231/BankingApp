@@ -14,15 +14,14 @@ function MainNavigation(props) {
         <div className={classes.mainDiv}>
           <Avatar squared src="/avatars/avatar-1.png" css={{ size: "$20" }} />
           <div className={classes.linkDiv}>
-            <Link href="/"><a><Button shadow color="gradient" auto>Login</Button></a></Link>
+            <Link href="/"><a><Button shadow color="gradient" auto>Logout</Button></a></Link>
           </div>
           <div className={classes.linkDiv}>
             <Link href="/userpage"><a><Button shadow color="gradient" auto>UserPage</Button></a></Link>
           </div>
           <div className={classes.linkDiv}>
-            <Link href="/transactions"><a><Button shadow color="gradient" auto>Transactions</Button></a></Link>
+            <Link href="/tickets"><a><Button shadow color="gradient" auto>Transactions</Button></a></Link>
           </div>
-          <div></div>
         </div>
       </Card>
     </>

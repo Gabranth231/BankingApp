@@ -1,13 +1,11 @@
 import Head from 'next/head'
-import Users from '../components/Users';
-
+import { Component } from 'react';
+import UsersPage from '../components/UsersPage';
+import Accounts from '../components/accounts';
 export default function userpage() {
   return (
-    <>
-      <Head>
-        <title>User Account</title>
-      </Head>
-      <Users />
-    </>
+    <Accounts>
+      <UsersPage/> 
+    </Accounts>
   )
 }
