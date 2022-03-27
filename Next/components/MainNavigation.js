@@ -10,23 +10,17 @@ function MainNavigation(props) {
   
   return (
     <>
-      <Card bordered shadow={false} hoverable css={{ mw: "100%" }}>
+      <Card bordered shadow={false} hoverable css={{ mw: "50%" }}>
         <div className={classes.mainDiv}>
           <Avatar squared src="/avatars/avatar-1.png" css={{ size: "$20" }} />
           <div className={classes.linkDiv}>
-            <Link href="/"><a><Button shadow color="gradient" auto>Home</Button></a></Link>
+            <Link href="/"><a><Button shadow color="gradient" auto>Login</Button></a></Link>
           </div>
           <div className={classes.linkDiv}>
-            <Link href="/account"><a><Button shadow color="gradient" auto>Account</Button></a></Link>
+            <Link href="/userpage"><a><Button shadow color="gradient" auto>UserPage</Button></a></Link>
           </div>
           <div className={classes.linkDiv}>
-            <Link href="/employees"><a><Button shadow color="gradient" auto>Employees</Button></a></Link>
-          </div>
-          <div className={classes.linkDiv}>
-            <Link href="/tickets"><a><Button shadow color="gradient" auto>Tickets</Button></a></Link>
-          </div>
-          <div className={classes.linkDiv}>
-            <Avatar text={noOfEmployees} size="md" color="success" textColor="white" />
+            <Link href="/transactions"><a><Button shadow color="gradient" auto>Transactions</Button></a></Link>
           </div>
           <div></div>
         </div>

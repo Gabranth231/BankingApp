@@ -1,13 +1,13 @@
 import React from 'react'
 
-function Account() 
+function Users() 
 {
   return (
     <section>
-      <h1>Accounts</h1>
+      <h1>Users</h1>
       
     </section>
   );
 }
   
-  export default Account;
+  export default Users
