@@ -2,26 +2,15 @@ import "../global.css";
 import { NextUIProvider } from "@nextui-org/react";
 import { DataContextProvider } from "../store/data-store";
 
-import Layout1 from "../components/layout1";
-import Layout2 from "../components/layout2";
+export default function MyApp({ Component, pageProps }) {
+  const getLayout = Component.getLayout || ((children) => <>{children}</>);
 
-const layouts = {
-  L1: Layout1,
-  L2: Layout2,
-};
-
-function MyApp({ Component, pageProps }) {
-  const Layout = layouts[Component.layout] || "L1";
-
-  return (
+  return getLayout(
     <NextUIProvider>
       <DataContextProvider>
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
+       <Component {...pageProps} />
       </DataContextProvider>
     </NextUIProvider>
   );
+  
 }
-
-export default MyApp

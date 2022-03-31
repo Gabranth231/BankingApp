@@ -1,8 +1,7 @@
 import Tickets from '../components/Tickets';
 import Head from 'next/head'
-
+import Layout from '../components/layout2';
 export default function TicketsPage() {
-  TicketsPage.Layout = "L2";
 
   return (
     <>
@@ -11,5 +10,12 @@ export default function TicketsPage() {
       </Head>
       <Tickets />
     </>
+  )
+}
+TicketsPage.getLayout = function getLayout(page) {
+  return (
+    <Layout>
+      {page}
+    </Layout>
   )
 }

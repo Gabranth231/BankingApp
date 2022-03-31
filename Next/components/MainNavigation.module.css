@@ -7,5 +7,5 @@
   display: flex;
   margin: 10px;
   justify-content: center;
-  align-items: center;
+  align-items: stretch;
 }

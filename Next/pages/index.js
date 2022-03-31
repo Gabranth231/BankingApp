@@ -1,9 +1,7 @@
 import Head from 'next/head'
 import Link from "next/link";
-
+import Layout from '../components/layout1';
 export default function Home() {
-  Home.Layout = "L2";
-
   return (
     <>
       <Head>
@@ -13,3 +11,10 @@ export default function Home() {
     </>
   );
 }
+// Home.getLayout = function getLayout(page) {
+//   return (
+//     <Layout>
+//       {page}
+//     </Layout>
+//   )
+// }
