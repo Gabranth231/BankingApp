@@ -1,18 +1,16 @@
 import "../global.css";
-import Layout from "../components/layout";
 import { NextUIProvider } from "@nextui-org/react";
 import { DataContextProvider } from "../store/data-store";
 
-function MyApp({ Component, pageProps }) {
-  return (
+export default function MyApp({ Component, pageProps }) {
+  const getLayout = Component.getLayout || ((children) => <>{children}</>);
+
+  return getLayout(
     <NextUIProvider>
       <DataContextProvider>
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
+       <Component {...pageProps} />
       </DataContextProvider>
     </NextUIProvider>
   );
+  
 }
-
-export default MyApp

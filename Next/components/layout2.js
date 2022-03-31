@@ -1,11 +1,11 @@
-import styles from './accounts.module.css'
+import styles from './layout.module.css'
 import MainNavigation from './MainNavigation';
 
-export default function Accounts({ children }) {
+export default function Layout({ children }) {
     
     return (
         <div className={styles.container}>
-            <MainNavigation />
+            <MainNavigation/>
             {children}
         </div>
     )

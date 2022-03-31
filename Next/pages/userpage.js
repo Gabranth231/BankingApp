@@ -1,11 +1,17 @@
 import Head from 'next/head'
 import { Component } from 'react';
 import UsersPage from '../components/UsersPage';
-import Accounts from '../components/accounts';
+import Layout from '../components/layout2';
+
 export default function userpage() {
   return (
-    <Accounts>
-      <UsersPage/> 
-    </Accounts>
+    <UsersPage/> 
+  )
+}
+userpage.getLayout = function getLayout(page) {
+  return (
+    <Layout>
+      {page}
+    </Layout>
   )
 }
