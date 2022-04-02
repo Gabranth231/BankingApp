@@ -16,7 +16,7 @@ function MainNavigation(props) {
             <Link href="/userpage"><a><Button shadow color="gradient" auto>UserPage</Button></a></Link>
           </div>
           <div className={classes.linkDiv}>
-            <Link href="/tickets"><a><Button shadow color="gradient" auto>Transactions</Button></a></Link>
+            <Link href="/transactions"><a><Button shadow color="gradient" auto>Transactions</Button></a></Link>
           </div>
           <div className={classes.linkDiv}>
             <Link href="/"><a><Button shadow color="gradient" auto>Logout</Button></a></Link>

@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Tickets() 
+function Transactions() 
 {
   return (
     <section>
@@ -9,4 +9,4 @@ function Tickets()
   );
 }
   
-  export default Tickets;
+  export default Transactions;
