@@ -1,18 +1,18 @@
-import Tickets from '../components/Tickets';
+import Transactions from '../components/Transactions';
 import Head from 'next/head'
 import Layout from '../components/layout2';
-export default function TicketsPage() {
+export default function transactions() {
 
   return (
     <>
       <Head>
         <title>Tickets</title>
       </Head>
-      <Tickets />
+      <Transactions />
     </>
   )
 }
-TicketsPage.getLayout = function getLayout(page) {
+transactions.getLayout = function getLayout(page) {
   return (
     <Layout>
       {page}
