@@ -1,6 +1,7 @@
 import React from 'react'
 import {Container, Row, Col, Card, Text, Spacer, Table} from "@nextui-org/react"
-function UsersPage() 
+
+function Users() 
 {
   const columns = [
     {
@@ -93,4 +94,4 @@ function UsersPage()
   );
 }
   
-  export default UsersPage;
+  export default Users;
