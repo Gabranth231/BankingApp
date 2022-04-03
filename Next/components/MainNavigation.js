@@ -7,10 +7,10 @@ function MainNavigation(props) {
       <Grid.Container direction="vertical">
         <Grid md={12}>
           <Button.Group size="xl">
-            <Link href="/userpage">
+            <Link href="/UserPage">
               <Button>User Page</Button>
             </Link>
-            <Link href="/transactions">
+            <Link href="/TransactionsPage">
               <Button>Transactions</Button>
             </Link>
             <Link href="/TransferPage">

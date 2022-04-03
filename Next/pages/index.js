@@ -11,7 +11,7 @@ export default function Home() {
     setUserName(event.target.value);
   };
   function handler(){
-    location.href="/userpage"
+    location.href="/UserPage"
     dataCtx.addUser(UserName)
   }
   return (
