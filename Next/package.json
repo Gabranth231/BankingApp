@@ -6,7 +6,11 @@
     "start": "next start -p 3001"
   },
   "dependencies": {
+<<<<<<< HEAD
+    "@nextui-org/react": "^1.0.6-beta.3",
+=======
     "@nextui-org/react": "1.0.6-beta.5",
+>>>>>>> 18ec26d17121a43fc263749ee191426e8a00a3f9
     "next": "latest",
     "node": "16.14.2",
     "react": "^17.0.2",

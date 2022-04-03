@@ -11,10 +11,3 @@ export default function Home() {
     </>
   );
 }
-// Home.getLayout = function getLayout(page) {
-//   return (
-//     <Layout>
-//       {page}
-//     </Layout>
-//   )
-// }
