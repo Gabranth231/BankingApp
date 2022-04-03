@@ -1,18 +1,46 @@
 import { createContext, useState, useEffect } from 'react';
 
-
-const DataContext = createContext();
+const initialDataState = {
+    userName: "John",
+    balence: "100",
+    userContacts: "",
+    transactions: ""
+}
+const DataContext = createContext(initialDataState);
 
 
 export function DataContextProvider(props) {
-
+    const [dataObj, setDataObj] = useState(initialDataState);
     // see https://nextjs.org/docs/basic-features/data-fetching/client-side
-    function getUser() {
-        return dataObj.noEmployees
-    }
+    
+    useEffect(() => {
+       fetch('api/getUser')
+       .then((res) => res.json())
+       .then((data) => {
+            setDataObj((oldDataObj) => {
+                let prevDataObj = JSON.parse(JSON.stringify(oldDataObj))
+                prevDataObj.userName = data.userName
+                prevDataObj.balence = data.balence
+                prevDataObj.userContacts = data.userContacts
+                prevDataObj.transactions = data.transactions
+                return prevDataObj
+            })
+       })
+    },[]);
 
+    function getUser(){
+        return dataObj.userName
+    }
+    function getBalence(){
+        return dataObj.balence
+    }
+    function getUserContacts(){
+        return dataObj.balence
+    }
+    function getTransactions(){
+        return dataObj.balence
+    }
     async function addUser(data)  {
-        console.log(data)
         const response = await fetch('api/addUser', {
             method: 'POST',
             headers: {
@@ -22,8 +50,8 @@ export function DataContextProvider(props) {
                 {
                     userName: data,
                     balence:  "100",
-                    userContactsIDs: [],
-                    transactionsIDs: []
+                    userContacts: "",
+                    transactions: ""
                 }
             ) 
         });
@@ -36,7 +64,10 @@ export function DataContextProvider(props) {
 
     const context = {
         addUser:addUser,
-        getUser: getUser
+        getUser:getUser,
+        getBalence:getBalence,
+        getTransactions:getTransactions,
+        getUserContacts:getUserContacts
     };
 
     return (

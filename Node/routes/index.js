@@ -9,10 +9,11 @@ let userSchema = new Schema(
   {
     userName: String,
     balence: String,
-    userContactsIDs: [mongoose.SchemaType.ObjectId],
-    transactionsIDs: [mongoose.SchemaType.ObjectId],
+    userContacts: String,
+    transactions: String,
   }
 )
+
 let UserModel = mongoose.model("userInfo",userSchema);
 /* GET home page. */
 router.get("/", function (req, res, next) {
@@ -20,17 +21,17 @@ router.get("/", function (req, res, next) {
 });
 
 router.post("/addUser", function (req, res, next) {
-  console.log(req.body)
+  //console.log(req.body)
   var data = new UserModel(req.body)
   data.save()
   res.end()
 });
 
 router.post("/getUser", function (req, res, next) {
-  UserModel.find({userName: "Martin"}).then(function (docs) {
+  UserModel.find().then(function (docs) {
     let theDoc = docs[docs.length-1]
      console.log("//getUser: " + theDoc)
-     // theDoc = JSON.stringify(theDoc)
+     //theDoc = JSON.stringify(theDoc)
     res.status(200).json(theDoc)
   });
 });
