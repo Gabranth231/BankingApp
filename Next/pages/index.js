@@ -1,5 +1,3 @@
-import Head from 'next/head'
-import Link from "next/link";
 import { useContext , useState} from "react";
 import DataContext from '../store/data-store';
 import { Container, Row,Input, Spacer } from '@nextui-org/react';
@@ -11,7 +9,7 @@ export default function Home() {
     setUserName(event.target.value);
   };
   function handler(){
-    location.href="/userpage"
+    location.href="/UserPage"
     dataCtx.addUser(UserName)
   }
   return (
