@@ -3,7 +3,6 @@ import DataContext from '../store/data-store';
 import { Container, Row,Input, Spacer } from '@nextui-org/react';
 export default function Home() {
   const [UserName, setUserName] = useState("");
-
   const dataCtx = useContext(DataContext);
   const handleUserName = (event) => {
     setUserName(event.target.value);

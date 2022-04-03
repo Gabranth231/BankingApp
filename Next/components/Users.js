@@ -1,8 +1,12 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import {Container, Row, Col, Card, Text, Spacer, Table} from "@nextui-org/react"
-
+import { useState, useEffect} from 'react';
+import DataContext from '../store/data-store';
 function Users() 
 {
+  const dataCtx = useContext(DataContext);
+  var user = dataCtx.getUser();
+  var balence = dataCtx.getBalence();
   const columns = [
     {
       key: "name",
@@ -36,7 +40,6 @@ function Users()
     },
   ];
   return (
-    
     <Container gap={0}>
       <Spacer y={2}/>
       <Row gap={1}>
@@ -53,7 +56,7 @@ function Users()
             <Row gap={1}>
             <Card color="secondary">
               <Text h6 size={15} color="white" css={{ m: 0 }}>
-                Name: {}
+                Name: {user}
               </Text>
             </Card>
             </Row>
@@ -61,7 +64,7 @@ function Users()
             <Row gap={1}>
             <Card color="secondary">
               <Text h6 size={15} color="white" css={{ m: 0 }}>
-                Balence: {}
+                Balence: {balence}
               </Text>
             </Card>
             </Row>
