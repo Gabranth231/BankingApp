@@ -3,7 +3,8 @@ import { createContext, useState, useEffect } from 'react';
 const initialDataState = {
     noEmployees: '25'
 }
-const DataContext = createContext(initialDataState);
+const DataContext = createContext();
+
 
 export function DataContextProvider(props) {
     const [dataObj, setDataObj] = useState(initialDataState)
@@ -40,10 +41,33 @@ export function DataContextProvider(props) {
             return prevDataObj
         });
     }
+    async function addUser(data)  {
+        console.log(data)
+        const response = await fetch('api/addUser', {
+            method: 'POST',
+            headers: {
+            'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(
+                {
+                    userName: data,
+                    balence:  "100",
+                    userContactsIDs: [],
+                    transactionsIDs: []
+                }
+            ) 
+        });
+        // setDataObj((oldDataObj) => {
+        //     let prevDataObj = JSON.parse(JSON.stringify(oldDataObj))
+        //     prevDataObj.noEmployees = theNewNumber
+        //     return prevDataObj
+        // });
+    }
 
     const context = {
         getNoEmployees: getNoEmployees,
-        setNoEmployees: setNoEmployees
+        setNoEmployees: setNoEmployees,
+        addUser:addUser
     };
 
     return (
