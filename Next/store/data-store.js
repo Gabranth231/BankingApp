@@ -3,8 +3,8 @@ import { createContext, useState, useEffect } from 'react';
 const initialDataState = {
     userName: "John",
     balence: "100",
-    userContacts: "",
-    transactions: ""
+    userContacts: "Mike",
+    transactions: "20"
 }
 const DataContext = createContext(initialDataState);
 
@@ -35,10 +35,10 @@ export function DataContextProvider(props) {
         return dataObj.balence
     }
     function getUserContacts(){
-        return dataObj.balence
+        return dataObj.userContacts
     }
     function getTransactions(){
-        return dataObj.balence
+        return dataObj.transactions
     }
     async function addUser(data)  {
         const response = await fetch('api/addUser', {
@@ -61,10 +61,31 @@ export function DataContextProvider(props) {
         //     return prevDataObj
         // });
     }
+    async function addContact(data)  {
+        //console.log(data)
+        const response = await fetch('api/addContact', {
+            method: 'POST',
+            headers: {
+            'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(
+                {
+                    userName: data.userName,
+                    contactName: data.contactName
+                }
+            ) 
+        });
+        // setDataObj((oldDataObj) => {
+        //     let prevDataObj = JSON.parse(JSON.stringify(oldDataObj))
+        //     prevDataObj.noEmployees = theNewNumber
+        //     return prevDataObj
+        // });
+    }
 
     const context = {
         addUser:addUser,
         getUser:getUser,
+        addContact:addContact,
         getBalence:getBalence,
         getTransactions:getTransactions,
         getUserContacts:getUserContacts
