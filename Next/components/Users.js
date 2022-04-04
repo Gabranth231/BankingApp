@@ -1,42 +1,40 @@
 import React, { useContext } from 'react'
-import {Container, Row, Col, Card, Text, Spacer, Table} from "@nextui-org/react"
+import {Container, Row, Col, Card, Text, Spacer, Table, Modal, Input, Button} from "@nextui-org/react"
 import { useState, useEffect} from 'react';
 import DataContext from '../store/data-store';
 function Users() 
 {
   const dataCtx = useContext(DataContext);
+  const [contact,setContact] = useState("");
+  const [visable,setVisible] = useState(false);
   var user = dataCtx.getUser();
   var balence = dataCtx.getBalence();
+  var contacts = dataCtx.getUserContacts();
+  const handler = () =>{setVisible(true)}
+  const handleSubmit = () => {
+    var data = {
+      userName: user,
+      contactName: contact
+    }
+    dataCtx.addContact(data);
+    setVisible(false)
+  }
+  const closeHandler = () =>{
+    setVisible(false);
+  }
+  const handleUserName = (event) =>{
+    setContact(event.target.value);
+  }
   const columns = [
     {
-      key: "name",
+      key: "contactName",
       label: "NAME",
-    },
-    {
-      key: "accountid",
-      label: "AccountID",
     },
   ];
   const rows = [
     {
       key: "1",
-      name: "Tony Reichert",
-      accountid: "123",
-    },
-    {
-      key: "2",
-      name: "Zoey Lang",
-      accountid: "456",
-    },
-    {
-      key: "3",
-      name: "Jane Fisher",
-      accountid: "789",
-    },
-    {
-      key: "4",
-      name: "William Howard",
-      accountid: "101112",
+      contactName: contacts,
     },
   ];
   return (
@@ -67,6 +65,34 @@ function Users()
                 Balence: {balence}
               </Text>
             </Card>
+            </Row>
+            <Spacer y={2}/>
+            <Row gap={1}>
+              <Card onClick={handler}>
+                <Modal
+                  closeButton
+                  aria-aria-labelledby='modal-title'
+                  open = {visable}
+                  onClose = {closeHandler}
+                >
+                  <Modal.Header>
+                    <Text id="modal-title" size={10}>
+                      Add Contact
+                    </Text>
+                  </Modal.Header>
+                  <Modal.Body>
+                    <Input clearable label="Name" placeholder="Name" initialValue="" onChange={handleUserName}/> 
+                  </Modal.Body>
+                  <Modal.Footer>
+                    <Button onClick={handleSubmit}>
+                      Add
+                    </Button>
+                    <Button auto flat color="error" onClick={closeHandler}>
+                      Close
+                    </Button>
+                  </Modal.Footer>
+                </Modal>
+              </Card>
             </Row>
           </Container>
         </Col>
