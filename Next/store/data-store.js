@@ -55,14 +55,8 @@ export function DataContextProvider(props) {
                 }
             ) 
         });
-        // setDataObj((oldDataObj) => {
-        //     let prevDataObj = JSON.parse(JSON.stringify(oldDataObj))
-        //     prevDataObj.noEmployees = theNewNumber
-        //     return prevDataObj
-        // });
     }
     async function addContact(data)  {
-        //console.log(data)
         const response = await fetch('api/addContact', {
             method: 'POST',
             headers: {
@@ -75,11 +69,6 @@ export function DataContextProvider(props) {
                 }
             ) 
         });
-        // setDataObj((oldDataObj) => {
-        //     let prevDataObj = JSON.parse(JSON.stringify(oldDataObj))
-        //     prevDataObj.noEmployees = theNewNumber
-        //     return prevDataObj
-        // });
     }
 
     const context = {
